@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Music</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Random Music Player</h1>
+
+    <div class="keyboard-base">
+            <div class="key num">~</div>
+            <div class="key num">1</div>
+            <div class="key num">2</div>
+            <div class="key num">3</div>
+            <div class="key num">4</div>
+            <div class="key num">5</div>
+            <div class="key num">6</div>
+            <div class="key num">7</div>
+            <div class="key num">8</div>
+            <div class="key num">9</div>
+            <div class="key num">0</div>
+            <div class="key num">-</div>
+            <div class="key num">+</div>
+            <div class="key delete">Delete</div>
+            <div class="key tab">Tab</div>
+            <div data-key="81" class="key">Q</div>
+            <div data-key="87" class="key">w</div>
+            <div data-key="69" class="key">E</div>
+            <div data-key="82" class="key">R</div>
+            <div data-key="84" class="key">T</div>
+            <div data-key="89" class="key">Y</div>
+            <div data-key="85" class="key">U</div>
+            <div data-key="73" class="key">I</div>
+            <div data-key="79" class="key">O</div>
+            <div data-key="80" class="key">P</div>
+            <div class="key num">[</div>
+            <div class="key num">]</div>
+            <div class="key backslash">\</div>
+            <div class="key capslock">CapsLock</div>
+            <div data-key="65" class="key">A</div>
+            <div data-key="83" class="key">S</div>
+            <div data-key="68" class="key">D</div>
+            <div data-key="70" class="key">F</div>
+            <div data-key="71" class="key">G</div>
+            <div data-key="72" class="key">H</div>
+            <div data-key="74" class="key">J</div>
+            <div data-key="75" class="key">K</div>
+            <div data-key="76" class="key">L</div>
+            <div class="key num">;</div>
+            <div class="key num">'</div>
+            <div class="key return">Return</div>
+            <div class="key leftshift">Shift</div>
+            <div data-key="90" class="key">Z</div>
+            <div data-key="88" class="key">X</div>
+            <div data-key="67" class="key">C</div>
+            <div data-key="86" class="key">V</div>
+            <div data-key="66" class="key">B</div>
+            <div data-key="78" class="key">N</div>
+            <div data-key="77" class="key">M</div>
+            <div class="key num">,</div>
+            <div class="key num">.</div>
+            <div class="key num">/</div>
+            <div class="key rightshift">Shift</div>
+            <div class="key leftctrl">Ctrl</div>
+            <div class="key num">Alt</div>
+            <div class="key command">Command</div>
+            <div class="key space">Space</div>
+            <div class="key command">command</div>
+            <div class="key num">Alt</div>
+            <div class="key num">Ctrl</div>
+            <div class="key num">Fn</div>
+
+        </div>
+
+
+
+      <audio data-key="81" src="sounds/zig-zag.mp3"></audio>
+      <audio data-key="87" src="sounds/bubbles.mp3"></audio>
+      <audio data-key="69" src="sounds/clay.mp3"></audio>
+      <audio data-key="82" src="sounds/confetti.mp3"></audio>
+      <audio data-key="84" src="sounds/corona.mp3"></audio>
+      <audio data-key="89" src="sounds/dotted-spiral.mp3"></audio>
+      <audio data-key="85" src="sounds/flash-1.mp3"></audio>
+      <audio data-key="73" src="sounds/flash-2.mp3"></audio>
+      <audio data-key="79" src="sounds/flash-3.mp3"></audio>
+      <audio data-key="80" src="sounds/glimmer.mp3"></audio>
+      <audio data-key="65" src="sounds/moon.mp3"></audio>
+      <audio data-key="83" src="sounds/pinwheel.mp3"></audio>
+      <audio data-key="68" src="sounds/piston-1.mp3"></audio>
+      <audio data-key="70" src="sounds/piston-2.mp3"></audio>
+      <audio data-key="71" src="sounds/piston-3.mp3"></audio>
+      <audio data-key="72" src="sounds/prism-1.mp3"></audio>
+      <audio data-key="74" src="sounds/prism-2.mp3"></audio>
+      <audio data-key="75" src="sounds/prism-3.mp3"></audio>
+      <audio data-key="76" src="sounds/splits.mp3"></audio>
+      <audio data-key="90" src="sounds/squiggle.mp3"></audio>
+      <audio data-key="88" src="sounds/strike.mp3"></audio>
+      <audio data-key="67" src="sounds/suspension.mp3"></audio>
+      <audio data-key="86" src="sounds/timer.mp3"></audio>
+      <audio data-key="66" src="sounds/ufo.mp3"></audio>
+      <audio data-key="78" src="sounds/veil.mp3"></audio>
+      <audio data-key="77" src="sounds/wipe.mp3"></audio>
+
+
+<script>
+
+function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    const keyInput = document.querySelector("span");
+
+    if(!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('playing');
+}
+
+function removeTransition(e) {
+  if(e.propertyName !== 'transform') return;
+  this.classList.remove('playing');
+}
+const keys = document.querySelectorAll('.key');
+
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
+</script>
+
+  </body>
+</html>

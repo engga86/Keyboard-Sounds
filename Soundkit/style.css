@@ -1,0 +1,103 @@
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  margin: 100px;
+  text-align: center;
+}
+
+h3{
+
+  text-align: center;
+}
+
+.keyboard-base {
+    max-width: 1085px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(30, 30px);
+    grid-template-rows: repeat(5, 60px);
+    grid-gap: 5px;
+}
+
+
+.key {
+    background-color: rgb(172, 163, 163);
+    border: 2px solid black;
+    border-radius: 5px;
+    grid-column: span 2;
+    transition: all .07s ease;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 17px;
+}
+
+.num{
+    opacity:0.3;
+}
+
+.delete {
+    grid-column: span 4;
+    opacity: 0.3;
+}
+
+.tab {
+    grid-column: span 3;
+    opacity: 0.3;
+}
+
+.backslash {
+    grid-column: span 3;
+    opacity: 0.3;
+}
+
+.capslock {
+    grid-column: span 4;
+    opacity: 0.3;
+}
+
+.return {
+    grid-column: span 4;
+    opacity: 0.3;
+}
+
+.leftshift {
+    grid-column: span 5;
+    opacity: 0.3;
+}
+
+.rightshift {
+    grid-column: span 5;
+    opacity: 0.3;
+}
+
+.leftctrl {
+    grid-column: span 3;
+    opacity: 0.3;
+}
+
+.command {
+    grid-column: span 3;
+    font-size: 14px;
+    opacity: 0.3;
+}
+
+.space {
+    grid-column: span 13;
+    opacity: 0.3;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
